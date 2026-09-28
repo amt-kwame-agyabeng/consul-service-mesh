@@ -1,0 +1,21 @@
+services:
+  service-a:
+    build: ./service-a
+    container_name: consul-perf-service-a
+    ports:
+      - "8001:8000"
+    networks:
+      - app-network
+
+  service-b:
+    build: ./service-b
+    container_name: consul-perf-service-b
+    ports:
+      - "8002:8000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external: true
+    name: consul-connect-performance_default

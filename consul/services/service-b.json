@@ -1,0 +1,15 @@
+{
+  "service": {
+    "name": "service-b",
+    "id": "service-b",
+    "address": "172.21.0.3",
+    "port": 8000,
+    "connect": {
+      "sidecar_service": {}
+    },
+    "check": {
+      "http": "http://consul-perf-service-b:8000/",
+      "interval": "10s"
+    }
+  }
+}

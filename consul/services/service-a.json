@@ -1,0 +1,21 @@
+{
+  "service": {
+    "name": "service-a",
+    "id": "service-a",
+    "address": "172.21.0.4",
+    "port": 8000,
+    "connect": {
+      "sidecar_service": {
+        "port": 21001,
+        "proxy": {
+          "upstreams": [
+            {
+              "destination_name": "service-b",
+              "local_bind_port": 9000
+            }
+          ]
+        }
+      }
+    }
+  }
+}

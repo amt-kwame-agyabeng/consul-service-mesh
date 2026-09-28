@@ -1,0 +1,25 @@
+services:
+  consul:
+    image: hashicorp/consul:1.21
+    container_name: consul-server
+    command: consul agent -config-file=/consul/config/config.json
+    ports:
+      - "8500:8500"
+      - "8502:8502"
+    volumes:
+      - ./config.json:/consul/config/config.json:ro
+      - consul-data:/consul/data
+    networks:
+      - consul-network
+      - application-network
+
+volumes:
+  consul-data:
+
+networks:
+  consul-network:
+    driver: bridge
+
+  application-network:
+    external: true
+    name: consul-connect-performance_default
